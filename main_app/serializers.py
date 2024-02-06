@@ -4,7 +4,7 @@ from .models import Custom
 from .models import Vehicle
 
 class SWSerializer(serializers.ModelSerializer):
-    
+    vehicles = VehicleSerializer(many=True, read_only=True)
     class Meta:
         model = SW
         fields = '__all__'
