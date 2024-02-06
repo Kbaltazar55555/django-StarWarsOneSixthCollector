@@ -15,11 +15,11 @@ class Custom(models.Model):
     type = models.CharField(max_length=100)
     description = models.TextField(max_length=100)
     tools_Used = models.TextField(max_length=100)
+    sw = models.ForeignKey(SW, on_delete=models.CASCADE, null=True)  # Moved inside the class
 
-sw = models.ForeignKey(SW, on_delete=models.CASCADE, null=True)
+    def __str__(self):
+        return self.name
 
-def __str__(self):
-    return self.name
 
 
 
