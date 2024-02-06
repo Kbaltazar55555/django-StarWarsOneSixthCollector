@@ -3,9 +3,11 @@ from .models import SW
 from .models import Custom
 
 class SWSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = SW
         fields = '__all__'
+
 
 class CustomSerializer(serializers.ModelSerializer):
     class Meta:

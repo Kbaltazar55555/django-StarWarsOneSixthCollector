@@ -16,7 +16,7 @@ class Custom(models.Model):
     description = models.TextField(default='')
     tools_Used = models.TextField(default='')
 
-sw = models.ForeignKey(SW, on_delete=models.CASCADE, related_name='customs')
+sw = models.ForeignKey(SW, on_delete=models.CASCADE, null=True)
 
 def __str__(self):
     return self.name
