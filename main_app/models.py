@@ -13,8 +13,8 @@ class SW(models.Model):
 class Custom(models.Model):
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
-    description = models.TextField(default='')
-    tools_Used = models.TextField(default='')
+    description = models.TextField(max_length=100)
+    tools_Used = models.TextField(max_length=100)
 
 sw = models.ForeignKey(SW, on_delete=models.CASCADE, null=True)
 
