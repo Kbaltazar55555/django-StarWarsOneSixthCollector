@@ -20,6 +20,14 @@ class Custom(models.Model):
     def __str__(self):
         return self.name
 
+# Adding What would be the 3rd model or Toy model
+class Vehicle(models.Model):
+    name = models.CharField(max_length=100)
+    color = models.CharField(max_length=100)
+    description = models.TextField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 

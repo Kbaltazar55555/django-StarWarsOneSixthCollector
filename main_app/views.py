@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import generics
-from .models import SW, Custom
-from .serializers import SWSerializer, CustomSerializer
+from .models import SW, Custom, Vehicle
+from .serializers import SWSerializer, CustomSerializer, VehicleSerializer
 
 # Define the home view
 class Home(APIView):
@@ -40,5 +40,14 @@ class CustomDetail(generics.RetrieveUpdateDestroyAPIView):
    def get_queryset(self):
       SW_id = self.kwargs['SW_id']
       return Custom.objects.filter(SW_id=SW_id)
+   
+class VehicleList(generics.ListCreateAPIView):
+  queryset = Vehicle.objects.all()
+  serializer_class = VehicleSerializer
+
+class VehicleDetail(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Vehicle.objects.all()
+  serializer_class = VehicleSerializer
+  lookup_field = 'id'
    
    
