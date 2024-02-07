@@ -14,7 +14,7 @@ class SWList(generics.ListCreateAPIView):
     queryset = SW.objects.all()
     serializer_class = SWSerializer
 
-class SWDetail(generics.RetrieveUpdatesDestroyAPIView):
+class SWDetail(generics.RetrieveUpdateDestroyAPIView):
    queryset = SW.objects.all()
    serializer_class = SWSerializer
    lookup_field = 'id'

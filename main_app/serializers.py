@@ -3,6 +3,11 @@ from .models import SW
 from .models import Custom
 from .models import Vehicle
 
+class VehicleSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model = Vehicle
+        fields = '__all__'
+
 class SWSerializer(serializers.ModelSerializer):
     vehicles = VehicleSerializer(many=True, read_only=True)
     class Meta:
@@ -15,8 +20,3 @@ class CustomSerializer(serializers.ModelSerializer):
         model = Custom
         fields = '__all__'
         read_only_fields = ('sw',)
-
-class VehicleSerializer(serializers.ModelSerializer):
-    class Meta: 
-        model = Vehicle
-        fields = '__all__'
