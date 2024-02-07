@@ -23,7 +23,7 @@ class SWDetail(generics.RetrieveUpdateDestroyAPIView):
     instance = self.get_object()
     serializer = self.get_serializer(instance)
 
-    Vehicles_not_associated = Vehicle.objects.exclude(id__in=instance.toys.all())
+    Vehicles_not_associated = Vehicle.objects.exclude(id__in=instance.vehicles.all())
     Vehicles_serializer = VehicleSerializer(Vehicles_not_associated, many=True)
 
     return Response({
