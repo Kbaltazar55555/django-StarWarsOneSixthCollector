@@ -36,16 +36,16 @@ class CustomListCreate(generics.ListCreateAPIView):
    serializer_class = CustomSerializer
 
    def get_queryset(self):
-      SW_id = self.kwargs['SW_id']
-      return Custom.objects.filter(SW_id=SW_id)
+      SW_id = self.kwargs['sw_id']
+      return Custom.objects.filter(sw_id=sw_id)
    
    def perform_create(self, serializer):
-      SW_id = self.kwargs['SW_id']
-      SW = SW.objects.get(id=SW_id)
-      serializer.save(SW=SW)
+      SW_id = self.kwargs['sw_id']
+      SW = SW.objects.get(id=sw_id)
+      serializer.save(sw=sw)
 
 class CustomDetail(generics.RetrieveUpdateDestroyAPIView):
-   
+   queryset = Custom.objects.all()
    serializer_class = CustomSerializer
    lookup_field = 'id'
 
