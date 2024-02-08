@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Adding What would be the 3rd model or Toy model
 class Vehicle(models.Model):
@@ -15,6 +17,8 @@ class SW(models.Model):
     description = models.TextField(default=None)
     model = models.CharField(max_length=100)  
     vehicles = models.ManyToManyField('Vehicle', related_name='sws')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.name
