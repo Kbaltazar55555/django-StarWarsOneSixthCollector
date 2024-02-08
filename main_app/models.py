@@ -14,7 +14,7 @@ class SW(models.Model):
     version = models.CharField(max_length=100, default='1.0')
     description = models.TextField(default=None)
     model = models.CharField(max_length=100)  
-    Vehicles = models.ManyToManyField('Vehicle', related_name='sws')
+    vehicles = models.ManyToManyField('Vehicle', related_name='sws')
 
     def __str__(self):
         return self.name
